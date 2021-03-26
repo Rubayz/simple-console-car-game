@@ -1,5 +1,5 @@
-import random
 commands = ""
+is_started = False
 name = input("Enter your name: ")
 name.strip()
 
@@ -14,9 +14,17 @@ if option == 1:
 	while True:
 		commands = input("> ")
 		if commands == "start":
-			print("Car is started.")
+			if is_started:
+				print("The car is already started")
+			else:
+				is_started = True
+				print("Car is started.")			
 		elif commands == "stop":
-			print("Car is stopped.")
+			if not is_started:
+				print("The car is already stopped!")
+			else:
+				is_started = False
+				print("Car is stopped.")
 		elif commands == "help":
 			print("""
 start - To start the car.
